@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Gravestone() {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const GraveStone = ({ student }) => (
+<li>
+  {`${student.firstName} ${student.lastName}`}
+</li>
+);
+
+GraveStone.propTypes = {
+  student: PropTypes.object.isRequired
+};
+
+export default GraveStone;

@@ -1,14 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function LiveStudent(students) {
-  return (
-    <div>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{students.firstName} {students.lastName}</h5>
-        </div>
-        <img src="..." class="card-img-bottom" alt="..."/>
-      </div>
-    </div>
-  )
-}
+const LiveStudent = ({ student }) => (
+<li>
+  {`${student.firstName} ${student.lastName}`}
+</li>
+);
+
+LiveStudent.propTypes = {
+  student: PropTypes.object.isRequired
+};
+
+export default LiveStudent;

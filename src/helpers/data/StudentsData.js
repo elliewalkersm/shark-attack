@@ -152,11 +152,10 @@ const dearlyBeloved = () => students.filter((student) => student.isDead);
 const followTheLight = () => {
   const currentLiveStudents = livingStudents();
   const randomStudent = currentLiveStudents[Math.floor(Math.random() * currentLiveStudents.length)];
-
   const index = students.indexOf(randomStudent);
   students[index].isDead = true;
 
-  return [livingStudents(), followTheLight()];
+  return [livingStudents(), dearlyBeloved()];
 };
 
 export {

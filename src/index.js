@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './Styles/index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Styles/index.scss';
 
 ReactDOM.render(
   <React.Fragment>

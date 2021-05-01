@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+import GraveStone from './Gravestone';
 
-export default function Graveyard() {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const GraveYard = ({ deadStudents }) => (
+<ul>
+  {deadStudents.map((student) => (
+    <GraveStone key={student.id} student={student}/>
+  ))}
+</ul>);
+
+GraveYard.propTypes = {
+  deadStudents: PropTypes.array.isRequired
+};
+
+export default GraveYard;
