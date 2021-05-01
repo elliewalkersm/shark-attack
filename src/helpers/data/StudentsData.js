@@ -1,176 +1,167 @@
-import React from 'react'
-
 const students = [
   {
-    id: firebaseKey,
+    id: 1,
     firstName: 'Ellie',
     lastName: 'Walker',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 2,
     firstName: 'Lindsey',
     lastName: 'Satterfield',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 3,
     firstName: 'Katy',
     lastName: 'Fry',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 4,
     firstName: 'Tad',
     lastName: 'Sekeres',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 5,
     firstName: 'Ben',
     lastName: 'Jarrett',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 6,
     firstName: 'Dani',
     lastName: 'Crosby',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 7,
     firstName: 'Casey',
     lastName: 'Walker',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 8,
     firstName: 'Chie',
     lastName: 'Stroud',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 9,
     firstName: 'Chris',
     lastName: 'Meffley',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 10,
     firstName: 'Martin',
     lastName: 'Sisk',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 11,
     firstName: 'Gabby',
     lastName: 'Tobermann',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 12,
     firstName: 'Matthew',
     lastName: 'Gonzales',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 13,
     firstName: 'John',
     lastName: 'Maple',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 14,
     firstName: 'Holly',
     lastName: 'Parson',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 15,
     firstName: 'Hunter',
     lastName: 'Juneau',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 16,
     firstName: 'Jim',
     lastName: 'Conner',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 17,
     firstName: 'Jesse',
     lastName: 'Robinson',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 18,
     firstName: 'Juan',
     lastName: 'Davila',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 19,
     firstName: 'Mitchell',
     lastName: 'Crumbley',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 20,
     firstName: 'Nathan',
     lastName: 'Keith',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 21,
     firstName: 'Rob',
     lastName: 'Cole',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 22,
     firstName: 'Sara',
     lastName: 'Schoonover',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 23,
     firstName: 'Sean',
     lastName: 'Rossettie',
-    isDead: 'false'
+    isDead: false
   },
   {
-    id: firebaseKey,
+    id: 24,
     firstName: 'Honey-Rae',
     lastName: 'Swan',
-    isDead: 'false'
+    isDead: false
   }
 ];
 
-function livingStudents() {
- if (students.isDead === 'false')
- return (
-    <div>
-      console.warn('Alive')
-    </div>
-  )
-}
+const livingStudents = () => students.filter((student) => !student.isDead);
 
-function dearlyBeloved() {
-  if (students.isDead === 'true')
-  return (
-    <div>
-      console.warn('Dead')
-    </div>
-  )
-}
+const dearlyBeloved = () => students.filter((student) => student.isDead);
 
-function followTheLight() {
-  return (
-    <div>
-      console.warn('followTheLight')
-    </div>
-  )
-}
+const followTheLight = () => {
+  const currentLiveStudents = livingStudents();
+  const randomStudent = currentLiveStudents[Math.floor(Math.random() * currentLiveStudents.length)];
 
-export { livingStudents, dearlyBeloved, followTheLight };
+  const index = students.indexOf(randomStudent);
+  students[index].isDead = true;
+
+  return [livingStudents(), followTheLight()];
+};
+
+export {
+  livingStudents,
+  dearlyBeloved,
+  followTheLight,
+  students
+};
